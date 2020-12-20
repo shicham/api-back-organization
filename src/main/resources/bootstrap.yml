@@ -1,3 +1,10 @@
 spring:
   application:
     name: back-organization
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+  client:
+    serviceUrl:
+      defaultZone: http://51.68.44.179:8700/eureka/
