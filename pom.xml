@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.crm</groupId>
-	<artifactId>api-back-gateway</artifactId>
+	<artifactId>api-back-organization</artifactId>
 	<version>0.0.1</version>
-	<name>back-gateway</name>
-	<description>back-gateway</description>
+	<name>api-back-organization</name>
+	<description>api-back-organization</description>
 
 	<properties>
 		<java.version>11</java.version>
