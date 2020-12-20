@@ -1,4 +1,4 @@
-package com.crm.erk.server;
+package com.crm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,13 +19,5 @@ public class CrmErkServerApplication {
 		SpringApplication.run(CrmErkServerApplication.class, args);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String getAuthor(@PathVariable("id") int id) {
-		return "id : " + id;
-	}
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String getAuthor() {
-		return "id : ";
-	}
 
 }
