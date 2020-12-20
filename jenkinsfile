@@ -12,7 +12,7 @@ node {
     // ip address of the docker private repository(nexus)
     
     def dockerRepoUrl = "hsassa"
-    def dockerImageName = "back-organization"
+    def dockerImageName = "api-back-organization"
     def dockerImageTag = "${dockerRepoUrl}/${dockerImageName}:${version}"
     
     stage('Clone Repo') { // for display purposes

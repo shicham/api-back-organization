@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.crm</groupId>
-	<artifactId>back-gateway</artifactId>
+	<artifactId>api-back-gateway</artifactId>
 	<version>0.0.1</version>
 	<name>back-gateway</name>
 	<description>back-gateway</description>
@@ -74,7 +74,7 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 
 	<dependencyManagement>
