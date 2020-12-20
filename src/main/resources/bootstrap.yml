@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-organisation-service
+    name: api-back-organization
 
 eureka:
   instance:
