@@ -1,27 +1,2 @@
 server:
   port: 8010
-
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 5
-  client:
-    serviceUrl:
-      defaultZone: http://51.68.44.179:8700/eureka/
-
-# Api-Gate-Way
-zuul:
-  prefix: /api
-  routes:
-    organisation-service:
-      path: /organisation-service/**
-      serviceId: API-ORGANISATION
-      sensitiveHeaders: Cookie,Set-Cookie
-      
-# Increase the Hystrix timeout to 60s (globally)
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
