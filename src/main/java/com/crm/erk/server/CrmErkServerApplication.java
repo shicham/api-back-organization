@@ -23,5 +23,9 @@ public class CrmErkServerApplication {
 	public String getAuthor(@PathVariable("id") int id) {
 		return "id : " + id;
 	}
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String getAuthor() {
+		return "id : ";
+	}
 
 }
