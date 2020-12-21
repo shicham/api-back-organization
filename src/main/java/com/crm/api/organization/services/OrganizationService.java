@@ -2,7 +2,7 @@ package com.crm.api.organization.services;
 
 import com.crm.api.organization.forms.Organization;
 import com.crm.api.organization.forms.OrganizationFilter;
-import commun.exceptions.ServiceException;
+import com.crm.commun.exceptions.ServiceException;
 import org.springframework.data.domain.Page;
 
 public interface OrganizationService {

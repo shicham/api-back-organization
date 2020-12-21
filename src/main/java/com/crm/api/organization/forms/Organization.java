@@ -1,6 +1,7 @@
 package com.crm.api.organization.forms;
 
-import commun.forms.Form;
+
+import com.crm.commun.forms.Form;
 
 public class Organization extends Form {
 }
