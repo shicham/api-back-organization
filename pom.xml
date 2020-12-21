@@ -24,6 +24,7 @@
 			<groupId>com.crm</groupId>
 			<artifactId>crm-commun</artifactId>
 			<version>1.0</version>
+			<scope>system</scope>
 			<systemPath>/home/ubuntu/.m2/repository/com/crm/crm-commun/1.0/crm-commun-1.0.jar</systemPath>
 		</dependency>
 		<dependency>
