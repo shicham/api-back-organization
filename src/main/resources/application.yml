@@ -8,8 +8,8 @@ spring:
       maximumPoolSize: 2
     ## PostgreSQL
     url: jdbc:postgresql://localhost:5432/crm
-    username: postgres
-    password: postgres
+    username: crm_1
+    password: BVfBymMVpTVZ
   #drop n create table again, good for testing, comment this in production
   jpa:
     show-sql: true
