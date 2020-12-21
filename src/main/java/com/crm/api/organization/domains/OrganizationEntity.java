@@ -20,6 +20,6 @@ public class OrganizationEntity extends Domain {
     @Column(name = "parent_fk")
     private Long parentId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "parent_fk", foreignKey = @ForeignKey(name = "org_org_parent"))
+    @JoinColumn(name = "parent_fk", foreignKey = @ForeignKey(name = "org_org_parent"), insertable = false, updatable = false, nullable = true)
     private OrganizationEntity parent;
 }
