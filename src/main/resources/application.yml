@@ -7,9 +7,9 @@ spring:
       connectionTimeout: 50000
       maximumPoolSize: 2
     ## PostgreSQL
-    url: jdbc:postgresql://localhost:5432/crm
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://51.68.44.179:5432/crm
+    username: crm_1
+    password: BVfBymMVpTVZ
   #drop n create table again, good for testing, comment this in production
   jpa:
     show-sql: true
@@ -17,6 +17,5 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         default_schema: organization
-        hbm2ddl:
           auto: update
     open-in-view: false
