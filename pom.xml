@@ -25,7 +25,7 @@
 			<artifactId>crm-commun</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-                        <systemPath>file:/home/ubuntu/.m2/repository/com/crm/crm-commun/1.0/crm-commun-1.0.jar</systemPath>
+                        <systemPath>/home/ubuntu/.m2/repository/com/crm/crm-commun/1.0/crm-commun-1.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
