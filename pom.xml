@@ -21,13 +21,7 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.crm</groupId>
-			<artifactId>crm-commun</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-                        <systemPath>${commun}/crm-commun-1.0.jar</systemPath>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
