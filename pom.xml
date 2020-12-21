@@ -24,8 +24,7 @@
 			<groupId>com.crm</groupId>
 			<artifactId>crm-commun</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/libs/crm-commun-1.0.jar</systemPath>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -121,6 +120,10 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
+		<repository>
+		       <id>mylibid</id>
+		       <url>file://${project.basedir}/libs</url>
+		   </repository>
 	</repositories>
 
 </project>
