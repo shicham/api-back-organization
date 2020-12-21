@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+		<commun>/home/ubuntu/.m2/repository/com/crm/crm-commun/1.0</commun>
 	</properties>
 
 	<dependencies>
@@ -25,7 +26,7 @@
 			<artifactId>crm-commun</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-                        <systemPath>/home/ubuntu/.m2/repository/com/crm/crm-commun/1.0/crm-commun-1.0.jar</systemPath>
+                        <systemPath>${commun}/crm-commun-1.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
