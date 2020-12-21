@@ -17,4 +17,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         default_schema: organization
+        hbm2ddl:
+          auto: update
     open-in-view: false
