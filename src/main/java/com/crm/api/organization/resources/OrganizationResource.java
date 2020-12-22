@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
-@RestController(value = "/api/api-back-organization")
+@RestController(value = "/api-back-organization")
 public class OrganizationResource {
 
 	@Autowired
