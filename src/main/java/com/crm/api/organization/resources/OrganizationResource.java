@@ -5,6 +5,7 @@ import com.crm.api.organization.forms.OrganizationFilter;
 import com.crm.api.organization.services.OrganizationService;
 import com.crm.commun.exceptions.WebException;
 import com.crm.commun.results.PaginResponse;
+import com.crm.commun.results.RequestFilter;
 import com.crm.commun.results.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +28,7 @@ public class OrganizationResource {
 	}
 	@PostMapping(value = "/find", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
-	public PaginResponse<Organization> find(@RequestBody OrganizationFilter filter)  throws WebException {
+	public PaginResponse<Organization> find(@RequestBody RequestFilter filter)  throws WebException {
 		return new PaginResponse(organizationService.find(filter));
 	}
 	@PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)

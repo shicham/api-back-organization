@@ -38,17 +38,25 @@ public class StringTools {
             return false;
         }
     }
+
     public static boolean isEmpty(Long value) {
         return value == null;
     }
     public static boolean isEmpty(Date value) {
         return value == null;
     }
-
     public static boolean isEmpty(String value) {
         return value == null || value.trim().length() == 0;
     }
-
+    public static boolean isNotEmpty(String value){
+        return !isEmpty(value);
+    }
+    public static boolean isNotEmpty(Long value){
+        return !isEmpty(value);
+    }
+    public static boolean isNotEmpty(Date value){
+        return !isEmpty(value);
+    }
     public static Date toDate(String strDate,String format) throws ServiceException {
         try {
             DateFormat df = new SimpleDateFormat(format);
