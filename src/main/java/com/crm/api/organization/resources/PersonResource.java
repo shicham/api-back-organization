@@ -1,7 +1,7 @@
 package com.crm.api.organization.resources;
 
-import com.crm.api.organization.forms.Organization;
-import com.crm.api.organization.services.OrganizationService;
+import com.crm.api.organization.forms.Person;
+import com.crm.api.organization.services.PersonService;
 import com.crm.commun.exceptions.WebException;
 import com.crm.commun.results.PaginResponse;
 import com.crm.commun.results.RequestFilter;
@@ -12,22 +12,22 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api-back-organization")
-public class OrganizationResource {
+@RequestMapping(value = "/api-back-person")
+public class PersonResource {
 
 	@Autowired
-	OrganizationService organizationService;
+	PersonService personService;
 
 	/**
-	 * get
+     * get
 	 * @param id
-	 * @return
-	 * @throws WebException
+     * @return
+     * @throws WebException
 	 */
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
-	public Response<Organization> get(@PathVariable Long id)  throws WebException {
-		return new Response(organizationService.get(id));
+	public Response<Person> get(@PathVariable Long id)  throws WebException {
+		return new Response(personService.get(id));
 	}
 
 	/**
@@ -38,8 +38,8 @@ public class OrganizationResource {
 	 */
 	@PostMapping(value = "/find", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
-	public PaginResponse<Organization> find(@RequestBody RequestFilter filter)  throws WebException {
-		return organizationService.find(filter);
+	public PaginResponse<Person> find(@RequestBody RequestFilter filter)  throws WebException {
+		return personService.find(filter);
 	}
 
 	/**
@@ -50,8 +50,8 @@ public class OrganizationResource {
 	 */
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
-	public Response<Organization> create(@RequestBody Organization form)  throws WebException {
-		return new Response(organizationService.create(form));
+	public Response<Person> create(@RequestBody Person form)  throws WebException {
+		return new Response(personService.create(form));
 	}
 
 	/**
@@ -63,8 +63,8 @@ public class OrganizationResource {
 	 */
 	@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.OK)
-	public Response<Organization> update(@RequestBody Organization form, @PathVariable Long id)  throws WebException {
-		return new Response(organizationService.update(form, id));
+	public Response<Person> update(@RequestBody Person form, @PathVariable Long id)  throws WebException {
+		return new Response(personService.update(form, id));
 	}
 
 	/**
@@ -75,8 +75,8 @@ public class OrganizationResource {
 	 */
 	@DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public Response<Organization> delete(@PathVariable Long id)  throws WebException {
-		organizationService.delete(id);
+	public Response<Person> delete(@PathVariable Long id)  throws WebException {
+		personService.delete(id);
 		return new Response("deleted");
 	}
 

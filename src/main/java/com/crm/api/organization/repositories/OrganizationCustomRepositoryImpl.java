@@ -24,9 +24,10 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class OrganizationRepositoryImpl implements OrganizationCustomRepository {
+public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepository {
 
     @PersistenceContext
     EntityManager em;
@@ -38,5 +39,20 @@ public class OrganizationRepositoryImpl implements OrganizationCustomRepository 
         GenericSpesification genericSpesification = new GenericSpesification<OrganizationEntity>();
         genericSpesification.add(filter.getCriteria());
         return organizationRepository.findAll(genericSpesification, pageable);
+    }
+
+    @Override
+    public Optional<OrganizationEntity> get(Long id) throws DBException {
+        return organizationRepository.findById(id);
+    }
+
+    @Override
+    public OrganizationEntity save(OrganizationEntity entity) throws DBException{
+        return organizationRepository.save(entity);
+    }
+
+    @Override
+    public void delete(OrganizationEntity entity) throws DBException{
+        organizationRepository.delete(entity);
     }
 }
