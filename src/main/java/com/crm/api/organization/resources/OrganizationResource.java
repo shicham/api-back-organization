@@ -12,7 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api-back-organization")
+@RequestMapping("/api-back-organization")
 public class OrganizationResource {
 
 	@Autowired
