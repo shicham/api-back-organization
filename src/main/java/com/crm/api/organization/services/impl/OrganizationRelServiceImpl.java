@@ -2,6 +2,7 @@ package com.crm.api.organization.services.impl;
 
 import com.crm.api.organization.domains.OrganizationRelEntity;
 import com.crm.api.organization.forms.OrganizationRel;
+import com.crm.api.organization.forms.OrganizationRepository;
 import com.crm.api.organization.mappers.OrganizationRelMapper;
 import com.crm.api.organization.repositories.OrganizationRelCustomRepository;
 import com.crm.api.organization.rules.OrganizationRelRule;
