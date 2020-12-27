@@ -71,7 +71,7 @@ public class OrganizationRelServiceImpl implements OrganizationRelService {
         OrganizationRelEntity entity = organizationRelMapper.toDomain(form);
         organizationRelRule.create(entity);
         if(entity.getParentId() != null){
-            OrganizationEntity parent = organizationRepository.get(entity.getParentId());
+            OrganizationEntity parent = organizationRepository.findById(entity.getParentId()).get();
             entity.setHierarchy(parent.getHierarchy());
         }else{
             entity.setHierarchy(parent.getId());
