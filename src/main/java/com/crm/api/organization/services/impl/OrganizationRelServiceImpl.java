@@ -25,6 +25,8 @@ public class OrganizationRelServiceImpl implements OrganizationRelService {
     @Autowired
     OrganizationRelCustomRepository organizationRelCustomRepository;
     @Autowired
+    OrganizationRepository organizationRepository;
+    @Autowired
     OrganizationRelMapper organizationRelMapper;
     @Autowired
     OrganizationRelRule organizationRelRule;
@@ -66,6 +68,12 @@ public class OrganizationRelServiceImpl implements OrganizationRelService {
     public OrganizationRel create(OrganizationRel form) throws ServiceException {
         OrganizationRelEntity entity = organizationRelMapper.toDomain(form);
         organizationRelRule.create(entity);
+        if(entity.getParentId() != null){
+            OrganizationEntity parent = organizationRepository.get(entity.getParentId());
+            entity.setHierarchy(parent.getHierarchy());
+        }else{
+            entity.setHierarchy(parent.getId());
+        }
         organizationRelCustomRepository.save(entity);
         return organizationRelMapper.toForm(entity);
     }
