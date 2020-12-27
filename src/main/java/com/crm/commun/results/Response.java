@@ -14,10 +14,12 @@ public class Response<T> implements IResponse {
     public String apiVersion = ConfigProperties.appVersion;
     public Date date = new Date();
     List<String> messages = new ArrayList<>(0);
-    public Response(){
+
+    public Response() {
         super();
     }
-    public Response(String message){
+
+    public Response(String message) {
         super();
         this.messages.add(message);
     }

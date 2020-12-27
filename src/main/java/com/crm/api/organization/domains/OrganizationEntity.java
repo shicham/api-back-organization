@@ -1,5 +1,6 @@
 package com.crm.api.organization.domains;
 
+import com.crm.api.referentiel.domains.ReferentielEntity;
 import com.crm.commun.domains.Domain;
 import lombok.Data;
 
@@ -17,9 +18,9 @@ public class OrganizationEntity extends Domain {
     private String externalCode;
     private String name;
     private String description;
-    @Column(name = "parent_fk")
-    private Long parentId;
+    @Column(name = "type_fk")
+    private Long typeId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "parent_fk", foreignKey = @ForeignKey(name = "org_org_parent"), insertable = false, updatable = false, nullable = true)
-    private OrganizationEntity parent;
+    @JoinColumn(name = "type_fk", foreignKey = @ForeignKey(name = "org_org_person_type"), insertable = false, updatable = false, nullable = true)
+    private ReferentielEntity type;
 }

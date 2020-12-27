@@ -12,72 +12,77 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api-back-person")
+@RequestMapping(value = "/person")
 public class PersonResource {
 
-	@Autowired
-	PersonService personService;
+    @Autowired
+    PersonService personService;
 
-	/**
+    /**
      * get
-	 * @param id
+     *
+     * @param id
      * @return
      * @throws WebException
-	 */
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(code = HttpStatus.OK)
-	public Response<Person> get(@PathVariable Long id)  throws WebException {
-		return new Response(personService.get(id));
-	}
+     */
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK)
+    public Response<Person> get(@PathVariable Long id) throws WebException {
+        return new Response(personService.get(id));
+    }
 
-	/**
-	 * find
-	 * @param filter
-	 * @return
-	 * @throws WebException
-	 */
-	@PostMapping(value = "/find", produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(code = HttpStatus.OK)
-	public PaginResponse<Person> find(@RequestBody RequestFilter filter)  throws WebException {
-		return personService.find(filter);
-	}
+    /**
+     * find
+     *
+     * @param filter
+     * @return
+     * @throws WebException
+     */
+    @PostMapping(value = "/find", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK)
+    public PaginResponse<Person> find(@RequestBody RequestFilter filter) throws WebException {
+        return personService.find(filter);
+    }
 
-	/**
-	 * create
-	 * @param form
-	 * @return
-	 * @throws WebException
-	 */
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(code = HttpStatus.OK)
-	public Response<Person> create(@RequestBody Person form)  throws WebException {
-		return new Response(personService.create(form));
-	}
+    /**
+     * create
+     *
+     * @param form
+     * @return
+     * @throws WebException
+     */
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK)
+    public Response<Person> create(@RequestBody Person form) throws WebException {
+        return new Response(personService.create(form));
+    }
 
-	/**
-	 * update
-	 * @param form
-	 * @param id
-	 * @return
-	 * @throws WebException
-	 */
-	@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(code = HttpStatus.OK)
-	public Response<Person> update(@RequestBody Person form, @PathVariable Long id)  throws WebException {
-		return new Response(personService.update(form, id));
-	}
+    /**
+     * update
+     *
+     * @param form
+     * @param id
+     * @return
+     * @throws WebException
+     */
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK)
+    public Response<Person> update(@RequestBody Person form, @PathVariable Long id) throws WebException {
+        return new Response(personService.update(form, id));
+    }
 
-	/**
-	 * delete
-	 * @param id
-	 * @return
-	 * @throws WebException
-	 */
-	@DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public Response<Person> delete(@PathVariable Long id)  throws WebException {
-		personService.delete(id);
-		return new Response("deleted");
-	}
+    /**
+     * delete
+     *
+     * @param id
+     * @return
+     * @throws WebException
+     */
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public Response<Person> delete(@PathVariable Long id) throws WebException {
+        personService.delete(id);
+        return new Response("deleted");
+    }
 
 }

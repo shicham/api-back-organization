@@ -17,6 +17,7 @@ public class StringTools {
 
     /**
      * Convert Object to JsonString
+     *
      * @param obj
      * @return String
      */
@@ -27,14 +28,12 @@ public class StringTools {
             throw new RuntimeException(e);
         }
     }
-    public static boolean isStringInt(String s)
-    {
-        try
-        {
+
+    public static boolean isStringInt(String s) {
+        try {
             Integer.parseInt(s);
             return true;
-        } catch (NumberFormatException ex)
-        {
+        } catch (NumberFormatException ex) {
             return false;
         }
     }
@@ -42,40 +41,54 @@ public class StringTools {
     public static boolean isEmpty(Long value) {
         return value == null;
     }
+
     public static boolean isEmpty(Date value) {
         return value == null;
     }
+
     public static boolean isEmpty(String value) {
         return value == null || value.trim().length() == 0;
     }
-    public static boolean isNotEmpty(String value){
+
+    public static boolean isNotEmpty(String value) {
         return !isEmpty(value);
     }
-    public static boolean isNotEmpty(Long value){
+
+    public static boolean isNotEmpty(Long value) {
         return !isEmpty(value);
     }
-    public static boolean isNotEmpty(Date value){
+
+    public static boolean isNotEmpty(Date value) {
         return !isEmpty(value);
     }
-    public static Date toDate(String strDate,String format) throws ServiceException {
+
+    public static Date toDate(String strDate, String format) throws ServiceException {
         try {
             DateFormat df = new SimpleDateFormat(format);
             df.setLenient(false);
             return df.parse(strDate);
         } catch (DateTimeParseException e) {
             throw new ServiceException("invalide date : " + strDate);
-        }catch (ParseException e) {
+        } catch (ParseException e) {
             throw new ServiceException("invalide date : " + strDate);
         }
 
     }
 
-    public static String toDate(Date strDate)  {
+    public static String toDate(Date strDate) {
         return new SimpleDateFormat(YYYY_MM_DD).format(strDate);
     }
 
     public static long getDifferenceDays(Date d1, Date d2) {
         long diff = d2.getTime() - d1.getTime();
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+    }
+
+    public static Date endDate() throws ServiceException{
+        return toDate("9999-12-31",YYYY_MM_DD);
+    }
+
+    public static boolean isEmpty(Long[] value) {
+        return value == null || value.length == 0 ;
     }
 }

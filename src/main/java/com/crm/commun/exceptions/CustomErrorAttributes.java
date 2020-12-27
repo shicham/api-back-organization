@@ -17,7 +17,7 @@ public class CustomErrorAttributes extends DefaultErrorAttributes {
 
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
-    public CustomErrorAttributes(){
+    public CustomErrorAttributes() {
         super();
     }
 

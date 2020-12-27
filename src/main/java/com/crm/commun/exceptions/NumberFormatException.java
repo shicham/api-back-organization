@@ -1,4 +1,4 @@
 package com.crm.commun.exceptions;
 
-public class NumberFormatException extends RuntimeException{
+public class NumberFormatException extends RuntimeException {
 }

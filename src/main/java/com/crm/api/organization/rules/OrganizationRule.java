@@ -12,50 +12,63 @@ import java.util.List;
 public class OrganizationRule {
     /**
      * create rules
+     *
      * @param entity
      * @throws ServiceException
      */
     public void create(OrganizationEntity entity) throws ServiceException {
         List<String> errors = new ArrayList<>(0);
         // required elements
-        if(StringTools.isEmpty(entity.getName())){
+        if (StringTools.isEmpty(entity.getName())) {
             errors.add("name.required");
         }
 
         // generate internal code
         entity.setInternalCode(generateCode("ORGANIZATION_INTERNAL_CODE"));
 
-        if(errors.isEmpty()) {
+        if (errors.isEmpty()) {
             throw new ServiceException(errors);
         }
     }
 
     /**
      * update rules
+     *
      * @param entity
      * @throws ServiceException
      */
     public void update(OrganizationEntity entity) throws ServiceException {
         List<String> errors = new ArrayList<>(0);
-        if(StringTools.isEmpty(entity.getName())){
+        if (StringTools.isEmpty(entity.getId())) {
+            errors.add("id.required");
+        }
+        if (StringTools.isEmpty(entity.getName())) {
             errors.add("name.required");
         }
-        if(errors.isEmpty()) {
+        if (errors.isEmpty()) {
             throw new ServiceException(errors);
         }
     }
 
     /**
      * delete rules
+     *
      * @param entity
      * @throws ServiceException
      */
     public void delete(OrganizationEntity entity) throws ServiceException {
-
+        List<String> errors = new ArrayList<>(0);
+        if (StringTools.isEmpty(entity.getId())) {
+            errors.add("id.required");
+        }
+        if (errors.isEmpty()) {
+            throw new ServiceException(errors);
+        }
     }
 
     /**
      * generate code
+     *
      * @param type
      * @return
      */

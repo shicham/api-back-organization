@@ -15,11 +15,11 @@ public class OrganizationPersonEntity extends Domain {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "type_fk")
-    private Long typeId;
+    @Column(name = "rel_type_fk")
+    private Long relTypeId;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "type_fk", foreignKey = @ForeignKey(name = "org_org_person_type"), insertable = false, updatable = false, nullable = true)
-    private ReferentielEntity type;
+    @JoinColumn(name = "rel_type_fk", foreignKey = @ForeignKey(name = "org_org_person_type"), insertable = false, updatable = false, nullable = true)
+    private ReferentielEntity relType;
 
     @Column(nullable = false)
     private Date startAt;

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 
 public class ServerApplication {
     @Bean
-    public ModelMapper modelMapper(){
+    public ModelMapper modelMapper() {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setSkipNullEnabled(true).setMatchingStrategy(MatchingStrategies.STRICT);
         return mapper;

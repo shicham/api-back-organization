@@ -29,6 +29,7 @@ public class PersonServiceImpl implements PersonService {
 
     /**
      * find
+     *
      * @param filter
      * @return
      * @throws ServiceException
@@ -41,6 +42,7 @@ public class PersonServiceImpl implements PersonService {
 
     /**
      * get
+     *
      * @param id
      * @return
      * @throws ServiceException
@@ -52,6 +54,7 @@ public class PersonServiceImpl implements PersonService {
 
     /**
      * create
+     *
      * @param form
      * @return
      * @throws ServiceException
@@ -67,6 +70,7 @@ public class PersonServiceImpl implements PersonService {
 
     /**
      * update
+     *
      * @param form
      * @return
      * @throws ServiceException
@@ -75,7 +79,7 @@ public class PersonServiceImpl implements PersonService {
     @Transactional(readOnly = false)
     public Person update(Person form, Long id) throws ServiceException {
         PersonEntity entity = personCustomRepository.get(id).orElseThrow(ObjectNotFoundException::new);
-        personMapper.toDomain(form,entity);
+        personMapper.toDomain(form, entity);
         personRule.update(entity);
         personCustomRepository.save(entity);
         return personMapper.toForm(entity);
@@ -83,6 +87,7 @@ public class PersonServiceImpl implements PersonService {
 
     /**
      * delete
+     *
      * @param id
      * @throws ServiceException
      */

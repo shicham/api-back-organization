@@ -2,6 +2,8 @@ package com.crm.api.organization.mappers;
 
 import com.crm.api.organization.domains.OrganizationEntity;
 import com.crm.api.organization.forms.Organization;
+import com.crm.api.organization.forms.OrganizationPerson;
+import com.crm.api.organization.forms.PersonCreate;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,8 +18,11 @@ public class OrganizationMapper {
     ModelMapper modelMapper;
 
     public Organization toForm(OrganizationEntity entity) {
-        return modelMapper.map(entity, Organization.class);
+        Organization organization = modelMapper.map(entity, Organization.class);
+        organization.setTypeLabel(entity.getType().getLabel());
+        return organization;
     }
+
     public List<Organization> toForm(List<OrganizationEntity> list) {
         return list.stream().map(e -> {
             return toForm(e);
@@ -27,6 +32,7 @@ public class OrganizationMapper {
     public OrganizationEntity toDomain(Organization form) {
         return modelMapper.map(form, OrganizationEntity.class);
     }
+
     public List<OrganizationEntity> toDomain(List<Organization> list) {
         return list.stream().map(e -> {
             return toDomain(e);
@@ -36,4 +42,6 @@ public class OrganizationMapper {
     public void toDomain(Organization src, OrganizationEntity dest) {
         modelMapper.map(src, dest);
     }
+
+
 }

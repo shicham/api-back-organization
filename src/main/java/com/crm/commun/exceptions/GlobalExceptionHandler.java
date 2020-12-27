@@ -23,7 +23,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NumberFormatException.class)
     public ResponseEntity<ExceptionResponse> exception(NumberFormatException ex) {
-        log.error("NumberFormatException",ex);
+        log.error("NumberFormatException", ex);
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorCode("40");
         response.setErrorMessage(Arrays.asList("Number Format Error"));
@@ -34,7 +34,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(JDBCConnectionException.class)
     public ResponseEntity<ExceptionResponse> exception(JDBCConnectionException ex) {
-        log.error("JDBCConnectionException",ex);
+        log.error("JDBCConnectionException", ex);
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorCode("41");
         response.setErrorMessage(Arrays.asList("DB Internal Server Error"));
@@ -45,7 +45,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(JDBCException.class)
     public ResponseEntity<ExceptionResponse> exception(JDBCException ex) {
-        log.error("JDBCException",ex);
+        log.error("JDBCException", ex);
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorCode("42");
         response.setErrorMessage(Arrays.asList("DB Internal Server Error"));
@@ -56,7 +56,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(JsonParseException.class)
     public ResponseEntity<ExceptionResponse> exception(JsonParseException ex) {
-        log.error("HttpMessageNotReadableException,JsonParseException",ex);
+        log.error("HttpMessageNotReadableException,JsonParseException", ex);
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorCode("125");
         response.setErrorMessage(Arrays.asList("Format invalide"));
@@ -67,7 +67,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(WebException.class)
     public ResponseEntity<ExceptionResponse> exception(WebException ex) {
-        log.error("WebException",ex);
+        log.error("WebException", ex);
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorCode("43");
         response.setErrorMessage(ex.errors);
@@ -78,7 +78,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity<ExceptionResponse> exception(ServiceException ex) {
-        log.error("ServiceException",ex);
+        log.error("ServiceException", ex);
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorCode("44");
         response.setErrorMessage(ex.errors);

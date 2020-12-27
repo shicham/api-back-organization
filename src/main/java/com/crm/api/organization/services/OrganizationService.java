@@ -1,15 +1,12 @@
 package com.crm.api.organization.services;
 
-import com.crm.api.organization.domains.OrganizationEntity;
-import com.crm.api.organization.forms.Organization;
-import com.crm.api.organization.forms.OrganizationFilter;
-import com.crm.commun.domains.searchSpec.SearchCriteria;
+import com.crm.api.organization.forms.*;
 import com.crm.commun.exceptions.ServiceException;
 import com.crm.commun.results.PaginResponse;
 import com.crm.commun.results.RequestFilter;
-import org.springframework.data.domain.Page;
 
 public interface OrganizationService {
+
     /**
      * find
      * @param filter
@@ -49,4 +46,12 @@ public interface OrganizationService {
      * @throws ServiceException
      */
     void delete(Long id) throws ServiceException;
+
+    PaginResponse<OrganizationRel> childs(OrganizationRelFilter filter) throws ServiceException;
+
+    PaginResponse<OrganizationPerson> persons(OrganizationPersonFilter filter) throws ServiceException;
+
+    PersonCreate addNewPerson(PersonCreate form)  throws ServiceException;
+
+    OrganizationCreate addNewOrganization(OrganizationCreate form)  throws ServiceException;
 }

@@ -34,12 +34,12 @@ public class PersonCustomRepositoryImpl implements PersonCustomRepository {
     }
 
     @Override
-    public PersonEntity save(PersonEntity entity) throws DBException{
+    public PersonEntity save(PersonEntity entity) throws DBException {
         return personRepository.save(entity);
     }
 
     @Override
-    public void delete(PersonEntity entity) throws DBException{
+    public void delete(PersonEntity entity) throws DBException {
         personRepository.delete(entity);
     }
 }

@@ -13,8 +13,9 @@ import org.springframework.context.annotation.Scope;
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class ConfigProperties {
     public static String appVersion;
+
     @Value("${api.version}")
-    public void setAppVersion(String appVersion){
+    public void setAppVersion(String appVersion) {
         this.appVersion = appVersion;
     }
 }

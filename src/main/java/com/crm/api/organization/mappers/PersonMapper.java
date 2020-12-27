@@ -16,8 +16,11 @@ public class PersonMapper {
     ModelMapper modelMapper;
 
     public Person toForm(PersonEntity entity) {
-        return modelMapper.map(entity, Person.class);
+        Person person = modelMapper.map(entity, Person.class);
+        person.setTypeLabel(entity.getType().getLabel());
+        return person;
     }
+
     public List<Person> toForm(List<PersonEntity> list) {
         return list.stream().map(e -> {
             return toForm(e);
@@ -27,6 +30,7 @@ public class PersonMapper {
     public PersonEntity toDomain(Person form) {
         return modelMapper.map(form, PersonEntity.class);
     }
+
     public List<PersonEntity> toDomain(List<Person> list) {
         return list.stream().map(e -> {
             return toDomain(e);
