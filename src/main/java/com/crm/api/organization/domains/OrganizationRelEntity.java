@@ -36,4 +36,6 @@ public class OrganizationRelEntity extends Domain {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "child_fk", foreignKey = @ForeignKey(name = "org_org_rel_child"), insertable = false, updatable = false, nullable = false)
     private OrganizationEntity child;
+    
+    private String hierarchy;
 }
