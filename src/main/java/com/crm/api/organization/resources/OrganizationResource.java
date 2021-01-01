@@ -12,7 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/organization")
+@RequestMapping("/organization")
 public class OrganizationResource {
 
     @Autowired
@@ -26,7 +26,8 @@ public class OrganizationResource {
      * @return
      * @throws WebException
      */
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+   
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     @ResponseStatus(code = HttpStatus.OK)
     public Response<Organization> get(@PathVariable Long id) throws WebException {
         return new Response(organizationService.get(id));
