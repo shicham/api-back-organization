@@ -29,7 +29,7 @@ public class OrganizationRule {
         if (StringTools.isEmpty(entity.getTypeId())) {
             errors.add("typeId.required");
         }else {
-            ReferentielEntity type = referentielRepository.get(entity.getTypeId()).orElseThrow(ObjectNotFoundException::new);
+            ReferentielEntity type = referentielRepository.findById(entity.getTypeId()).orElseThrow(ObjectNotFoundException::new);
             entity.setType(type);   
         }
 
