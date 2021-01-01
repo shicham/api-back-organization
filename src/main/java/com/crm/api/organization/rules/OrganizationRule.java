@@ -4,12 +4,16 @@ import com.crm.api.organization.domains.OrganizationEntity;
 import com.crm.commun.exceptions.ServiceException;
 import com.crm.commun.tools.StringTools;
 import org.springframework.stereotype.Component;
-
+import com.crm.api.referentiel.repositories.ReferentielRepository;
+import com.crm.api.referentiel.domains.ReferentielEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class OrganizationRule {
+    @Autowired
+    private ReferentielRepository referentielRepository;
     /**
      * create rules
      *
@@ -21,6 +25,12 @@ public class OrganizationRule {
         // required elements
         if (StringTools.isEmpty(entity.getName())) {
             errors.add("name.required");
+        }
+        if (StringTools.isEmpty(entity.getTypeId())) {
+            errors.add("typeId.required");
+        }else {
+            ReferentielEntity type = referentielRepository.get(entity.getTypeId()).orElseThrow(ObjectNotFoundException::new);
+            entity.setType(type);   
         }
 
         // generate internal code
