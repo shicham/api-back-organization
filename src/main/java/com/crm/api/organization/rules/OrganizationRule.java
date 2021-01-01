@@ -1,5 +1,5 @@
 package com.crm.api.organization.rules;
-
+import com.crm.commun.exceptions.ObjectNotFoundException;
 import com.crm.api.organization.domains.OrganizationEntity;
 import com.crm.commun.exceptions.ServiceException;
 import com.crm.commun.tools.StringTools;
