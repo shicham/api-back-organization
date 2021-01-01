@@ -14,7 +14,7 @@ public class RequestFilter {
     
     public int getSize(){
         if(size < 1){
-            return 1000;   
+            return 10;   
         }else {
             return size;   
         }
