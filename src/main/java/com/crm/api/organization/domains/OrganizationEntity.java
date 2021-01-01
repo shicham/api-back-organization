@@ -20,7 +20,7 @@ public class OrganizationEntity extends Domain {
     private String description;
     @Column(name = "type_fk")
     private Long typeId;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_fk", foreignKey = @ForeignKey(name = "org_org_person_type"), insertable = false, updatable = false, nullable = true)
     private ReferentielEntity type;
 }
