@@ -26,7 +26,7 @@ public class OrganizationRule {
         // generate internal code
         entity.setInternalCode(generateCode("ORGANIZATION_INTERNAL_CODE"));
 
-        if (errors.isEmpty()) {
+        if (!errors.isEmpty()) {
             throw new ServiceException(errors);
         }
     }
@@ -45,7 +45,7 @@ public class OrganizationRule {
         if (StringTools.isEmpty(entity.getName())) {
             errors.add("name.required");
         }
-        if (errors.isEmpty()) {
+        if (!errors.isEmpty()) {
             throw new ServiceException(errors);
         }
     }
@@ -61,7 +61,7 @@ public class OrganizationRule {
         if (StringTools.isEmpty(entity.getId())) {
             errors.add("id.required");
         }
-        if (errors.isEmpty()) {
+        if (!errors.isEmpty()) {
             throw new ServiceException(errors);
         }
     }
