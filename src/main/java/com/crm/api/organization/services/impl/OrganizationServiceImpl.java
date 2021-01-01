@@ -55,8 +55,6 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     public PaginResponse<Organization> find(RequestFilter filter) throws ServiceException {
         Page<OrganizationEntity> page = organizationCustomRepository.find(filter, PageRequest.of(filter.getPage(), filter.getSize()));
-        System.out.println("-------------");
-        System.out.println(page.getContent());
         return new PaginResponse<>(page.getTotalElements(),organizationMapper.toForm(page.getContent()));
     }
 
