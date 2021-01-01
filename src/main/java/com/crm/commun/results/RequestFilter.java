@@ -11,5 +11,13 @@ public class RequestFilter {
     private List<SearchCriteria> criteria = new ArrayList<>(0);
     private int page;
     private int size;
+    
+    public int getSize(){
+        if(size < 1){
+            return 1000;   
+        }else {
+            return size;   
+        }
+    }
 
 }
