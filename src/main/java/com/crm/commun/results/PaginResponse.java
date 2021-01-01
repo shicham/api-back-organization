@@ -9,7 +9,8 @@ import java.util.List;
 public class PaginResponse<T> extends Response implements IResponse {
 
     private long totalElements;
-
+    private int size;
+    private int page;
     public PaginResponse() {
         super();
     }
@@ -22,5 +23,11 @@ public class PaginResponse<T> extends Response implements IResponse {
     public PaginResponse(long totalElements, List list) {
         this.setData(list);
         this.setTotalElements(totalElements);
+    }
+    public PaginResponse(long totalElements, List list, int page, int size) {
+        this.setData(list);
+        this.setTotalElements(totalElements);
+        this.page = page;
+        this.size=size;
     }
 }
