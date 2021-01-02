@@ -14,5 +14,6 @@ public class Organization extends Form {
     private String typeLabel;
     private Long statusId;
     private String statusLabel;   
+    private String statusCode;
     
 }
