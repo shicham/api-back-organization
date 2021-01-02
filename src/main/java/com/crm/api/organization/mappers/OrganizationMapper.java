@@ -21,6 +21,7 @@ public class OrganizationMapper {
         Organization organization = modelMapper.map(entity, Organization.class);
         organization.setTypeLabel(entity.getType().getLabel());
         organization.setStatusLabel(entity.getStatus().getLabel());
+        organization.setStatusCode(entity.getStatus().getInternalCode());
         return organization;
     }
 
