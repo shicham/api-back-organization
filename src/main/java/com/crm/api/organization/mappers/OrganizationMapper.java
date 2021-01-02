@@ -20,7 +20,7 @@ public class OrganizationMapper {
     public Organization toForm(OrganizationEntity entity) {
         Organization organization = modelMapper.map(entity, Organization.class);
         organization.setTypeLabel(entity.getType().getLabel());
-        organization.setStatusLabel(entity.getType().getStatus());
+        organization.setStatusLabel(entity.getStatus().getLabel());
         return organization;
     }
 
