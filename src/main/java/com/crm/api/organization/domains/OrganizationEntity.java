@@ -20,6 +20,13 @@ public class OrganizationEntity extends Domain {
     private String description;
     private String primaryEmail;
     private String primaryPhone;
+    
+    @Column(name = "parent_fk")
+    private Long parentId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_fk", foreignKey = @ForeignKey(name = "org_org_person_parent"), insertable = false, updatable = false, nullable = true)
+    private OrganizationEntity parent;
+    
     @Column(name = "type_fk")
     private Long typeId;
     @ManyToOne(fetch = FetchType.LAZY)
