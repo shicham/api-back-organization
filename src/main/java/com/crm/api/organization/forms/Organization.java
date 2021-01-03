@@ -21,7 +21,7 @@ public class Organization extends Form {
     private String statusCode;
     
     private Long parentId;
-    private String parentLabel;   
+    private String parentName;   
     private String parentCode;
     
 }
