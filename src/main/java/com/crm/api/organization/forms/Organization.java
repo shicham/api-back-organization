@@ -10,6 +10,7 @@ public class Organization extends Form {
     private String externalCode;
     private String name;
     private String primaryEmail;
+    private String primaryPhone;
     private String description;
     private Long typeId;
     private String typeLabel;
