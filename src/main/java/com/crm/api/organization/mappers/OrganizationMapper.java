@@ -22,6 +22,11 @@ public class OrganizationMapper {
         organization.setTypeLabel(entity.getType().getLabel());
         organization.setStatusLabel(entity.getStatus().getLabel());
         organization.setStatusCode(entity.getStatus().getInternalCode());
+        if(entity.getParent() != null){
+            organization.setParentName(entity.getParent().getName());
+            organization.setParentCode(entity.getParent().getInternalCode());
+        }
+        
         return organization;
     }
 
