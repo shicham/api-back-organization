@@ -19,7 +19,7 @@ public class OrganizationEntity extends Domain {
     private String name;
     private String description;
     private String primaryEmail;
-    
+    private String primaryPhone;
     @Column(name = "type_fk")
     private Long typeId;
     @ManyToOne(fetch = FetchType.LAZY)
