@@ -12,10 +12,16 @@ public class Organization extends Form {
     private String primaryEmail;
     private String primaryPhone;
     private String description;
+    
     private Long typeId;
     private String typeLabel;
+    
     private Long statusId;
     private String statusLabel;   
     private String statusCode;
+    
+    private Long parentId;
+    private String parentLabel;   
+    private String parentCode;
     
 }
