@@ -8,6 +8,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
+import com.crm.commun.tools.StringTools;
 
 /**
  * Project Name     : dynamic-where
@@ -42,7 +43,7 @@ public class GenericSpesification<T> implements Specification<T> {
 
         //add add criteria to predicates
         for (SearchCriteria criteria : list) {
-            if(criteria.getValue() == null){
+            if(StringTools.isEmpty(criteria.getValue())){
                 
             }else if (criteria.getOperation().equals(SearchOperation.GREATER_THAN)) {
                 predicates.add(builder.greaterThan(
