@@ -7,6 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeParseException;
+import java.util.Objects;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -90,5 +91,9 @@ public class StringTools {
 
     public static boolean isEmpty(Long[] value) {
         return value == null || value.length == 0 ;
+    }
+    
+    public static boolean isEmpty(Object value) {
+        return Objects.isNull(value) ;
     }
 }
