@@ -6,6 +6,7 @@ import lombok.Data;
 public class OrganizationFilter {
     private Long id;
     private Long[] typeId;
+    private Long[] statusId;
     private String internalCode;
     private String externalCode;
     private String name;
