@@ -6,7 +6,7 @@ import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.crm.commun.tools.StringTools;
-
+import com.google.common.collect.Lists;
 /**
  * Project Name     : dynamic-where
  * Date Time        : 22/12/2020
