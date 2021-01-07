@@ -1,8 +1,9 @@
 package com.crm.commun.domains.searchSpec;
-
+import java.util.List;
 public class SearchCriteria {
     private String key;
     private Object value;
+    private List values;
     private SearchOperation operation;
 
 
@@ -18,6 +19,14 @@ public class SearchCriteria {
 
     public void setKey(String key) {
         this.key = key;
+    }
+    
+    public List getValues() {
+        return values;
+    }
+
+    public void setValues(List values) {
+        this.values = values;
     }
 
     public Object getValue() {
