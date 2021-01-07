@@ -40,6 +40,7 @@ public class GenericSpesification<T> implements Specification<T> {
 
         //add add criteria to predicates
         for (SearchCriteria criteria : list) {
+            System.out.println("--"+criteria);
             if(StringTools.isEmpty(criteria.getValue())){
                 
             }else if (criteria.getOperation().equals(SearchOperation.IN)) {
