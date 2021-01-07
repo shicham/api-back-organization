@@ -45,9 +45,12 @@ public class GenericSpesification<T> implements Specification<T> {
         for (SearchCriteria criteria : list) {
             if(StringTools.isEmpty(criteria.getValue())){
                 
+            }else if (criteria.getOperation().equals(SearchOperation.IN)) {
+                Expression exp = root.get(criteria.getKey());
+                predicates.add(exp.in(criteria.getValue()));
             }else if (criteria.getOperation().equals(SearchOperation.GREATER_THAN)) {
                 predicates.add(builder.greaterThan(
-                        root.get(criteria.getKey()), criteria.getValue().toString()));
+                root.get(criteria.getKey()), criteria.getValue().toString()));
             } else if (criteria.getOperation().equals(SearchOperation.LESS_THAN)) {
                 predicates.add(builder.lessThan(
                         root.get(criteria.getKey()), criteria.getValue().toString()));
