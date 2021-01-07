@@ -43,7 +43,7 @@ public class GenericSpesification<T> implements Specification<T> {
             if(StringTools.isEmpty(criteria.getValue())){
                 
             }else if (criteria.getOperation().equals(SearchOperation.IN)) {
-               
+                System.out.println("--"+criteria.getValues());
                 predicates.add(root.get(criteria.getKey()).in(criteria.getValues()));
             }else if (criteria.getOperation().equals(SearchOperation.GREATER_THAN)) {
                 predicates.add(builder.greaterThan(
