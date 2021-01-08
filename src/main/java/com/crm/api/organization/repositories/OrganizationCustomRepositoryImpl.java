@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.data.domain.Sort;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Optional;
@@ -33,7 +33,7 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
     @Autowired
     OrganizationPersonRepository organizationPersonRepository;
 
-    public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable) throws DBException {
+    public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable, Sort sort) throws DBException {
         GenericSpesification genericSpesification = new GenericSpesification<OrganizationEntity>();
         genericSpesification.add(filter.getCriteria());
         return organizationRepository.findAll(genericSpesification, pageable);
