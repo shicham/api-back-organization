@@ -12,11 +12,12 @@ import com.crm.commun.results.PaginResponse;
 import com.crm.commun.results.RequestFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.Optional;
 
 public interface OrganizationCustomRepository {
-    public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable) throws DBException;
+    public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable, Sort sort) throws DBException;
 
     public Optional<OrganizationEntity> get(Long id) throws DBException;
 
