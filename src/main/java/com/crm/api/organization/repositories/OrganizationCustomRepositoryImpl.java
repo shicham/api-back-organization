@@ -41,7 +41,7 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
         List<Order> orders = new ArrayList<Order>();
         
         if (StringTools.isEmpty(filter.getSort())) {
-            for(Sort sort : filter.getSort()){
+            for(Order sort : filter.getSort()){
                orders.add(new Order(getSortDirection(sort.getDirection()), sort.getProperty()));
             }
         }
