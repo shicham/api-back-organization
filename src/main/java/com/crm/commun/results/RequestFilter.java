@@ -2,7 +2,7 @@ package com.crm.commun.results;
 
 import com.crm.commun.domains.searchSpec.SearchCriteria;
 import lombok.Data;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class RequestFilter {
     private List<SearchCriteria> criteria = new ArrayList<>(0);
     private int page;
     private int size;
-    private Sort[] sort;
+    private Order[] sort;
     
     public int getSize(){
         if(size < 1){
