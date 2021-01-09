@@ -20,6 +20,8 @@ import org.springframework.data.domain.Sort.Order;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepository {
