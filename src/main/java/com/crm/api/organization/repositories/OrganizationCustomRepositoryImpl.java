@@ -47,7 +47,7 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
                orders.add(new Order(getSortDirection(sort.getDirection().toString()), sort.getProperty()));
             }
         }
-        return organizationRepository.findAll(genericSpesification, pageable, Sort.by(orders));
+        return organizationRepository.findAll(genericSpesification, pageable);
     }
     
     
