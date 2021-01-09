@@ -42,7 +42,7 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
         
         if (StringTools.isEmpty(filter.getSort())) {
             for(Order sort : filter.getSort()){
-               orders.add(new Order(getSortDirection(sort.getDirection()), sort.getProperty()));
+               orders.add(new Order(getSortDirection(sort.getDirection().toString()), sort.getProperty()));
             }
         }
         return organizationRepository.findAll(genericSpesification, pageable, Sort.by(orders));
