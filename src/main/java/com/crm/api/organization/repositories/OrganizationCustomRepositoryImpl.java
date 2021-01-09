@@ -16,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Optional;
@@ -36,9 +37,28 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
     public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable) throws DBException {
         GenericSpesification genericSpesification = new GenericSpesification<OrganizationEntity>();
         genericSpesification.add(filter.getCriteria());
-        return organizationRepository.findAll(genericSpesification, pageable);
+        
+        List<Order> orders = new ArrayList<Order>();
+        
+        if (StringTools.isEmpty(filter.getSort())) {
+            for(Sort sort : filter.getSort()){
+               orders.add(new Order(getSortDirection(sort.getKey()), sort.getField()));
+            }
+        }
+        return organizationRepository.findAll(genericSpesification, pageable, Sort.by(orders));
+    }
+    
+    
+  private Sort.Direction getSortDirection(String direction) {
+    if (direction.equals("asc")) {
+      return Sort.Direction.ASC;
+    } else if (direction.equals("desc")) {
+      return Sort.Direction.DESC;
     }
 
+    return Sort.Direction.ASC;
+  }
+    
     @Override
     public Optional<OrganizationEntity> get(Long id) throws DBException {
         return organizationRepository.findById(id);
