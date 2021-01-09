@@ -33,7 +33,7 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
     @Autowired
     OrganizationPersonRepository organizationPersonRepository;
 
-    public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable, Sort sort) throws DBException {
+    public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable) throws DBException {
         GenericSpesification genericSpesification = new GenericSpesification<OrganizationEntity>();
         genericSpesification.add(filter.getCriteria());
         return organizationRepository.findAll(genericSpesification, pageable);
