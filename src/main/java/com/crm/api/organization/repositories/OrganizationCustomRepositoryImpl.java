@@ -39,14 +39,7 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
     public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable) throws DBException {
         GenericSpesification genericSpesification = new GenericSpesification<OrganizationEntity>();
         genericSpesification.add(filter.getCriteria());
-        
-        List<Order> orders = new ArrayList<Order>();
-        
-        if (filter.getSort() != null) {
-            for(Order sort : filter.getSort()){
-               orders.add(new Order(getSortDirection(sort.getDirection().toString()), sort.getProperty()));
-            }
-        }
+        genericSpesification.addOrder(filter.getSort());
         return organizationRepository.findAll(genericSpesification, pageable);
     }
     
