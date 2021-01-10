@@ -5,13 +5,14 @@ import lombok.Data;
 import org.springframework.data.domain.Sort.Order;
 import java.util.ArrayList;
 import java.util.List;
+import com.crm.commun.domains.searchSpec.Ord;
 
 @Data
 public class RequestFilter {
     private List<SearchCriteria> criteria = new ArrayList<>(0);
     private int page;
     private int size;
-    private Order[] sort;
+    private Ord[] sort;
     
     public int getSize(){
         if(size < 1){
