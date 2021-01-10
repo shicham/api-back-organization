@@ -86,13 +86,17 @@ public class GenericSpesification<T> implements Specification<T> {
                         criteria.getValue().toString().toLowerCase() + "%"));
             }
         }
-        
-        List<Order> orderList = new ArrayList<Order>();
+        Collection<javax.persistence.criteria.Order> criteriaOrders = new ArrayList<>();
         if (this.orders != null) {
-            for(Order sort : this.orders){
-               orderList.add(new Order(getSortDirection(sort.getDirection().toString()), sort.getProperty()));
+            for(Order order : this.orders){
+               if (Direction.ASC.equals(order.getDirection())) {
+                    criteriaOrders.add(builder.asc(root.get(order.getProperty())));
+                } else {
+                    criteriaOrders.add(builder.desc(root.get(order.getProperty())));
+                }
             }
-            query.orderBy(orderList);
+            query.orderBy(criteriaOrders.toArray(new javax.persistence.criteria.Order[0]));
+           
         }
         
         return builder.and(predicates.toArray(new Predicate[0]));
