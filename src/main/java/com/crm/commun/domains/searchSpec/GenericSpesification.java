@@ -74,7 +74,8 @@ public class GenericSpesification<T> implements Specification<T> {
                         criteria.getValue().toString().toLowerCase() + "%"));
             }
         }
-
+        query.orderBy(builder.asc(root.get("name")));
+        
         return builder.and(predicates.toArray(new Predicate[0]));
     }
 }
