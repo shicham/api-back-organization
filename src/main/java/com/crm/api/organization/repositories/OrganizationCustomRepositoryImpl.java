@@ -22,6 +22,7 @@ import javax.persistence.PersistenceContext;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 @Repository
 public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepository {
@@ -39,7 +40,10 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
     public Page<OrganizationEntity> find(RequestFilter filter, Pageable pageable) throws DBException {
         GenericSpesification genericSpesification = new GenericSpesification<OrganizationEntity>();
         genericSpesification.add(filter.getCriteria());
-        genericSpesification.addOrder(filter.getSort());
+        if(filter.getSort() != null){
+            genericSpesification.addOrder(Arrays.asList(filter.getSort()));
+        }
+        
         return organizationRepository.findAll(genericSpesification, pageable);
     }
     
