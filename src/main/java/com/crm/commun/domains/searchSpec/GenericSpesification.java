@@ -23,7 +23,7 @@ public class GenericSpesification<T> implements Specification<T> {
     private static final long serialVersionUID = 1900581010229669687L;
 
     private List<SearchCriteria> list;
-    private List<Order> orders = new ArrayList<Order>();
+    private List<Ord> orders = new ArrayList<Ord>();
     public GenericSpesification() {
         this.list = new ArrayList<>();
     }
@@ -31,7 +31,7 @@ public class GenericSpesification<T> implements Specification<T> {
     public void add(SearchCriteria criteria) {
         list.add(criteria);
     }
-    public void addOrder(List<Order> list) {
+    public void addOrder(List<Ord> list) {
         orders.addAll(list);
     }
     public void add(List<SearchCriteria> criteriaList) {
