@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import com.crm.commun.tools.StringTools;
 import com.google.common.collect.Lists;
+
+import org.springframework.data.domain.Sort.Order;
 /**
  * Project Name     : dynamic-where
  * Date Time        : 22/12/2020
@@ -19,7 +21,7 @@ public class GenericSpesification<T> implements Specification<T> {
     private static final long serialVersionUID = 1900581010229669687L;
 
     private List<SearchCriteria> list;
-
+    private List<Order> orders = new ArrayList<Order>();
     public GenericSpesification() {
         this.list = new ArrayList<>();
     }
@@ -27,7 +29,9 @@ public class GenericSpesification<T> implements Specification<T> {
     public void add(SearchCriteria criteria) {
         list.add(criteria);
     }
-
+    public void add(List<Order> list) {
+        orders.addAll(list);
+    }
     public void add(List<SearchCriteria> criteriaList) {
         list.addAll(criteriaList);
     }
@@ -74,8 +78,14 @@ public class GenericSpesification<T> implements Specification<T> {
                         criteria.getValue().toString().toLowerCase() + "%"));
             }
         }
-        query.orderBy(builder.asc(root.get("name")));
-        
+        List<Order> orderList = new ArrayList();
+        if (this.orders != null) {
+            for(Order sort : this.orders){
+               //query.orderBy(builder.asc(root.get("name")));
+               orderList.add(builder.desc(root.get(sort.getProperty())));
+            }
+            query.orderBy(orderList);
+        }
         return builder.and(predicates.toArray(new Predicate[0]));
     }
 }
