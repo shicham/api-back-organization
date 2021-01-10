@@ -42,6 +42,7 @@ public class OrganizationCustomRepositoryImpl implements OrganizationCustomRepos
         GenericSpesification genericSpesification = new GenericSpesification<OrganizationEntity>();
         genericSpesification.add(filter.getCriteria());
         if(filter.getSort() != null){
+            System.out.println("999");
             genericSpesification.addOrder(Arrays.asList(filter.getSort()));
         }
         
