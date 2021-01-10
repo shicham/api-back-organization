@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.crm.commun.tools.StringTools;
 import com.google.common.collect.Lists;
-
+import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 /**
  * Project Name     : dynamic-where
@@ -35,7 +35,15 @@ public class GenericSpesification<T> implements Specification<T> {
     public void add(List<SearchCriteria> criteriaList) {
         list.addAll(criteriaList);
     }
+  private Sort.Direction getSortDirection(String direction) {
+    if (direction.equals("asc")) {
+      return Sort.Direction.ASC;
+    } else if (direction.equals("desc")) {
+      return Sort.Direction.DESC;
+    }
 
+    return Sort.Direction.ASC;
+  }
     @Override
     public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
 
@@ -78,14 +86,15 @@ public class GenericSpesification<T> implements Specification<T> {
                         criteria.getValue().toString().toLowerCase() + "%"));
             }
         }
-        List<Order> orderList = new ArrayList();
+        
+        List<Order> orderList = new ArrayList<Order>();
         if (this.orders != null) {
             for(Order sort : this.orders){
-               //query.orderBy(builder.asc(root.get("name")));
-               orderList.add(builder.desc(root.get(sort.getProperty())));
+               orderList.add(new Order(getSortDirection(sort.getDirection().toString()), sort.getProperty()));
             }
             query.orderBy(orderList);
         }
+        
         return builder.and(predicates.toArray(new Predicate[0]));
     }
 }
