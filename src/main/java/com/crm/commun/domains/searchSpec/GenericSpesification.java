@@ -92,7 +92,7 @@ public class GenericSpesification<T> implements Specification<T> {
         if (this.orders != null) {
             System.out.println("222");
             for(Ord order : this.orders){
-               if (Sort.Direction.ASC.equals(order.getDirection())) {
+               if ("ASC".equals(order.getDirection())) {
                     System.out.println("888");
                     criteriaOrders.add(builder.asc(root.get(order.getProperty())));
                 } else {
