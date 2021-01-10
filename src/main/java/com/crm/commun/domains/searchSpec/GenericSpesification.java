@@ -29,7 +29,7 @@ public class GenericSpesification<T> implements Specification<T> {
     public void add(SearchCriteria criteria) {
         list.add(criteria);
     }
-    public void add(List<Order> list) {
+    public void addOrder(List<Order> list) {
         orders.addAll(list);
     }
     public void add(List<SearchCriteria> criteriaList) {
