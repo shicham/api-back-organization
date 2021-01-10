@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.Specification;
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collection;
 import com.crm.commun.tools.StringTools;
 import com.google.common.collect.Lists;
 import org.springframework.data.domain.Sort;
