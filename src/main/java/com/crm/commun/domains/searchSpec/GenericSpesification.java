@@ -1,4 +1,5 @@
 package com.crm.commun.domains.searchSpec;
+package com.crm.commun.domains.Ord;
 
 import org.springframework.data.jpa.domain.Specification;
 
@@ -89,7 +90,7 @@ public class GenericSpesification<T> implements Specification<T> {
         }
         Collection<javax.persistence.criteria.Order> criteriaOrders = new ArrayList<>();
         if (this.orders != null) {
-            for(Order order : this.orders){
+            for(Ord order : this.orders){
                if (Sort.Direction.ASC.equals(order.getDirection())) {
                     criteriaOrders.add(builder.asc(root.get(order.getProperty())));
                 } else {
