@@ -1,5 +1,5 @@
 package com.crm.commun.domains.searchSpec;
-package com.crm.commun.domains.Ord;
+import com.crm.commun.domains.Ord;
 
 import org.springframework.data.jpa.domain.Specification;
 
