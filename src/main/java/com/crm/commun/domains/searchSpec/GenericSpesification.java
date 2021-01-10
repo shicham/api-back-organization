@@ -90,10 +90,13 @@ public class GenericSpesification<T> implements Specification<T> {
         }
         Collection<javax.persistence.criteria.Order> criteriaOrders = new ArrayList<>();
         if (this.orders != null) {
+            System.out.println("222");
             for(Ord order : this.orders){
                if (Sort.Direction.ASC.equals(order.getDirection())) {
+                    System.out.println("888");
                     criteriaOrders.add(builder.asc(root.get(order.getProperty())));
                 } else {
+                   System.out.println("111");
                     criteriaOrders.add(builder.desc(root.get(order.getProperty())));
                 }
             }
