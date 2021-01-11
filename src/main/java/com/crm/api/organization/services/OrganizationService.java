@@ -39,6 +39,24 @@ public interface OrganizationService {
      * @throws ServiceException
      */
     Organization update(Organization form, Long id) throws ServiceException;
+    
+    /**
+     * updateStatus
+     * @param ids
+     * @param statusId
+     * @return
+     * @throws ServiceException
+     */
+    Organization updateStatus(Long[] ids, Long statusId) throws ServiceException;
+    
+    /**
+     * updateType
+     * @param ids
+     * @param typeId
+     * @return
+     * @throws ServiceException
+     */
+    Organization updateType(Long[] ids, Long typeId) throws ServiceException;
 
     /**
      * delete
