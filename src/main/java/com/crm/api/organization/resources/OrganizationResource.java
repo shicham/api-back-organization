@@ -140,8 +140,9 @@ public class OrganizationResource {
      */
     @PutMapping(value = "/status/{statusId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.OK)
-    public Response<Organization> updateStatus(@RequestBody Long[] ids, @PathVariable Long statusId) throws WebException {
-        return new Response(organizationService.updateStatus(ids, statusId));
+    public Response updateStatus(@RequestBody Long[] ids, @PathVariable Long statusId) throws WebException {
+        organizationService.updateStatus(ids, statusId);
+        return new Response("status.updated");
     }
     
     /**
@@ -154,8 +155,9 @@ public class OrganizationResource {
      */
     @PutMapping(value = "/type/{typeId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.OK)
-    public Response<Organization> updateType(@RequestBody Long[] ids, @PathVariable Long typeId) throws WebException {
-        return new Response(organizationService.updateType(ids, typeId));
+    public Response updateType(@RequestBody Long[] ids, @PathVariable Long typeId) throws WebException {
+        organizationService.updateType(ids, typeId);
+        return new Response("type.updated");
     }
     
     /**
