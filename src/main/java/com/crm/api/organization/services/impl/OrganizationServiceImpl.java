@@ -102,6 +102,38 @@ public class OrganizationServiceImpl implements OrganizationService {
         organizationCustomRepository.save(entity);
         return organizationMapper.toForm(entity);
     }
+    
+       /**
+     * updateStatus
+     * @param ids
+     * @param statusId
+     * @return
+     * @throws ServiceException
+     */
+    public void updateStatus(Long[] ids, Long statusId) throws ServiceException{
+        int len = ids.length;
+        for (int i = 0; i < len; i++) {
+            OrganizationEntity entity = organizationCustomRepository.get(ids[i]).orElseThrow(ObjectNotFoundException::new);
+            entity.setStatusId(statusId);
+            organizationCustomRepository.save(entity);
+        }
+    }
+    
+    /**
+     * updateType
+     * @param ids
+     * @param typeId
+     * @return
+     * @throws ServiceException
+     */
+    public void  updateType(Long[] ids, Long typeId) throws ServiceException{
+        int len = ids.length;
+        for (int i = 0; i < len; i++) {
+            OrganizationEntity entity = organizationCustomRepository.get(ids[i]).orElseThrow(ObjectNotFoundException::new);
+            entity.setTypeId(typeId);
+            organizationCustomRepository.save(entity);
+        }
+    }
 
     /**
      * delete
