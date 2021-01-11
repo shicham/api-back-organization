@@ -131,6 +131,34 @@ public class OrganizationResource {
     }
 
     /**
+     * updateStatus
+     *
+     * @param form
+     * @param id
+     * @return
+     * @throws WebException
+     */
+    @PutMapping(value = "/status/{statusId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK)
+    public Response<Organization> updateStatus(@RequestBody Long[] ids, @PathVariable Long statusId) throws WebException {
+        return new Response(organizationService.updateStatus(ids, statusId));
+    }
+    
+    /**
+     * updateStatus
+     *
+     * @param form
+     * @param id
+     * @return
+     * @throws WebException
+     */
+    @PutMapping(value = "/type/{typeId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK)
+    public Response<Organization> updateType(@RequestBody Long[] ids, @PathVariable Long typeId) throws WebException {
+        return new Response(organizationService.updateType(ids, typeId));
+    }
+    
+    /**
      * delete
      *
      * @param id
