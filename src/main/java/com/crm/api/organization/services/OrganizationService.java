@@ -47,7 +47,7 @@ public interface OrganizationService {
      * @return
      * @throws ServiceException
      */
-    Organization updateStatus(Long[] ids, Long statusId) throws ServiceException;
+    void updateStatus(Long[] ids, Long statusId) throws ServiceException;
     
     /**
      * updateType
@@ -56,7 +56,7 @@ public interface OrganizationService {
      * @return
      * @throws ServiceException
      */
-    Organization updateType(Long[] ids, Long typeId) throws ServiceException;
+    void updateType(Long[] ids, Long typeId) throws ServiceException;
 
     /**
      * delete
