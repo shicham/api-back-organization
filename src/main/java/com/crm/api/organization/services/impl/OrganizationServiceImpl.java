@@ -110,6 +110,7 @@ public class OrganizationServiceImpl implements OrganizationService {
      * @return
      * @throws ServiceException
      */
+    @Transactional(readOnly = false)
     public void updateStatus(Long[] ids, Long statusId) throws ServiceException{
         int len = ids.length;
         for (int i = 0; i < len; i++) {
@@ -126,6 +127,7 @@ public class OrganizationServiceImpl implements OrganizationService {
      * @return
      * @throws ServiceException
      */
+    @Transactional(readOnly = false)
     public void  updateType(Long[] ids, Long typeId) throws ServiceException{
         int len = ids.length;
         for (int i = 0; i < len; i++) {
