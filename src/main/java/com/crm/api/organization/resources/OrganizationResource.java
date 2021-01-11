@@ -143,5 +143,12 @@ public class OrganizationResource {
         organizationService.delete(id);
         return new Response("deleted");
     }
+    
+    @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public Response<Organization> delete(@RequestBody Long[] ids) throws WebException {
+        organizationService.delete(ids);
+        return new Response("deleted");
+    }
 
 }
