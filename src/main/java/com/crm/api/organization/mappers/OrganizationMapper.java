@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.crm.api.referentiel.repositories.ReferentielRepository;
+import com.crm.api.referentiel.domains.ReferentielEntity;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,10 +24,13 @@ public class OrganizationMapper {
     public Organization toForm(OrganizationEntity entity) {
         Organization organization = modelMapper.map(entity, Organization.class);
         if(entity.getTypeId() != null){
-            organization.setTypeLabel(referentielRepository.findById(entity.getTypeId()).get().getLabel());
+            ReferentielEntity type = referentielRepository.findById(entity.getTypeId()).get();
+            organization.setTypeLabel(type.getLabel());
         }
         if(entity.getStatusId() != null){
-            organization.setStatusLabel(referentielRepository.findById(entity.getStatusId()).get().getLabel());
+            ReferentielEntity status = referentielRepository.findById(entity.getStatusId()).get();
+            organization.setStatusLabel(status.getLabel());
+            organization.setStatusCode(status.getInternalCode());
         }
         
         //organization.setStatusLabel(entity.getStatus().getLabel());
