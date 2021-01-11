@@ -116,6 +116,18 @@ public class OrganizationServiceImpl implements OrganizationService {
         organizationRule.delete(org);
         organizationCustomRepository.delete(org);
     }
+    
+    @Override
+    @Transactional(readOnly = false)
+    public void delete(Long[] ids) throws ServiceException {
+        int len = ids.length;
+        for (int i = 0; i < len; i++) {
+            OrganizationEntity org = organizationCustomRepository.get(ids[i]).orElseThrow(ObjectNotFoundException::new);
+            organizationRule.delete(org);
+            organizationCustomRepository.delete(org);
+        }
+        
+    }
 
     /**
      * childs
