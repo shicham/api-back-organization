@@ -46,7 +46,7 @@ public interface OrganizationService {
      * @throws ServiceException
      */
     void delete(Long id) throws ServiceException;
-
+    void delete(Long[] ids) throws ServiceException; 
     PaginResponse<OrganizationRel> childs(OrganizationRelFilter filter) throws ServiceException;
 
     PaginResponse<OrganizationPerson> persons(OrganizationPersonFilter filter) throws ServiceException;
